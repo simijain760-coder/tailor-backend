@@ -360,7 +360,6 @@ app.delete('/api/orders/:id', async (req, res) => {
 // ============================================
 // STATISTICS ROUTES
 // ============================================
-
 // GET /api/stats/revenue
 app.get('/api/stats/revenue', async (req, res) => {
   try {
@@ -378,15 +377,11 @@ app.get('/api/stats/revenue', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, '0.0.0.0', () => {
-  //console.log(`🚀 Tailor Software API running on http://localhost:${PORT}`);
-  //console.log(`📊 Database: defaultdb (Aiven Cloud)`);
-  //console.log(`\n📝 Available endpoints:`);
-  //console.log(`   GET    http://localhost:${PORT}/api/customers`);
-  //console.log(`   POST   http://localhost:${PORT}/api/customers`);
-  //console.log(`   GET    http://localhost:${PORT}/api/orders`);
-  //console.log(`   POST   http://localhost:${PORT}/api/orders`);
-  //console.log(`\n✅ Ready to serve!`);
+// ✅ Root route for Render
+app.get('/', (req, res) => {
+  res.send('✅ Tailor Backend API running successfully');
 });
+
+// Start server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
